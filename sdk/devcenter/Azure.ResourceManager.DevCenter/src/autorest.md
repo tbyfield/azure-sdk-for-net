@@ -48,4 +48,7 @@ rename-rules:
   URI: Uri
   Etag: ETag|etag
 
+rename-mapping:
+  DevCenterSku: DevCenterSkuDetails
+
 ```
