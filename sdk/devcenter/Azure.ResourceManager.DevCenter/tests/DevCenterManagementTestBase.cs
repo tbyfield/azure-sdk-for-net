@@ -14,13 +14,8 @@ namespace Azure.ResourceManager.DevCenter.Tests
     {
         protected ArmClient Client { get; private set; }
 
-        protected DevCenterManagementTestBase(bool isAsync, RecordedTestMode mode)
-        : base(isAsync, mode)
-        {
-        }
-
-        protected DevCenterManagementTestBase(bool isAsync)
-            : base(isAsync)
+        protected DevCenterManagementTestBase(bool isAsync, RecordedTestMode? mode = null)
+        : base(isAsync, mode ?? RecordedTestMode.Playback)
         {
         }
 
@@ -36,6 +31,11 @@ namespace Azure.ResourceManager.DevCenter.Tests
             ResourceGroupData input = new ResourceGroupData(location);
             var lro = await subscription.GetResourceGroups().CreateOrUpdateAsync(WaitUntil.Completed, rgName, input);
             return lro.Value;
+        }
+
+        protected async Task Initialize()
+        {
+            await Task.Delay(0);
         }
     }
 }
