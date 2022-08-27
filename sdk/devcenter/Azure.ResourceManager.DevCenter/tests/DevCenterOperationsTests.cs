@@ -19,18 +19,8 @@ namespace Azure.ResourceManager.DevCenter.Tests
         {
         }
 
-        [SetUp]
-        public async Task SetupTest()
-        {
-            if (Mode == RecordedTestMode.Record || Mode == RecordedTestMode.Playback)
-            {
-                await Initialize().ConfigureAwait(false);
-            }
-        }
-
-        [PlaybackOnly("Live test for DevCenter is not enabled")]
-        [RecordedTest]
-        ////[Test]
+        [Test]
+        [PlaybackOnly("TODO")]
         public async Task DevCenterResourceFull()
         {
             SubscriptionResource subscription = await Client.GetDefaultSubscriptionAsync();
