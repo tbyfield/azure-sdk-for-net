@@ -7,5 +7,6 @@ namespace Azure.ResourceManager.DevCenter.Tests
 {
     public class DevCenterManagementTestEnvironment : TestEnvironment
     {
+        public string DefaultDevCenterId => GetRecordedOptionalVariable("DefaultDevCenterId");
     }
 }
